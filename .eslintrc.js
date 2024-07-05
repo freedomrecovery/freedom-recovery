@@ -1,12 +1,12 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    es2021: true
   },
   extends: [
-    'plugin:vue/essential',
-    'eslint:recommended',
-    '@vue/eslint-config-standard'
+    'plugin:vue/vue3-essential',
+    '@vue/standard'
   ],
   parserOptions: {
     parser: '@babel/eslint-parser',
@@ -17,3 +17,4 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   }
 }
+
