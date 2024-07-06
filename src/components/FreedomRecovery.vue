@@ -3,7 +3,7 @@
     <section id="home">
       <h2>Welcome to Freedom Recovery</h2>
       <h3>Our only rule is to be kind and be clothed 😊</h3>
-      <p>Our program helps individuals recover from addiction through support and community using a modern and no pressure approach.</p>
+      <p>Our program takes a no pressure approach to support those suffering from addiction through support and community.</p>
       <button @click="findMeeting">Find a Meeting</button>
     </section>
     <section id="meetings" v-if="showMeetings">
