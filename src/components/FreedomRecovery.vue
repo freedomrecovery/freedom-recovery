@@ -1,45 +1,35 @@
 <template>
-  <div id="app">
-    <header>
-      <nav>
-        <router-link to="/" class="home-link">Home</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/membership">Membership</router-link>
-        <router-link to="/contact">Contact</router-link>
-      </nav>
-      <h1>Freedom Recovery</h1>
-    </header>
-    <main>
-      <section id="home">
-        <h2>Welcome to Freedom Recovery</h2>
-        <h3>Our only rule is to be kind and be clothed 😊</h3>
-        <p>Our program helps individuals recover from addiction through support and community using a modern and no pressure approach.</p>
-        <button @click="findMeeting">Find a Meeting</button>
-      </section>
-      <section id="meetings" v-if="showMeetings">
-        <h2>Find a Meeting</h2>
-        <div class="search-bar">
-          <input type="text" v-model="location" placeholder="Enter your location">
-          <button @click="searchMeetings">Search</button>
-        </div>
-        <ul>
-          <li v-for="meeting in meetings" :key="meeting.id">
-            <strong>{{ meeting.title }}</strong> - {{ meeting.time }}
-            <a :href="meeting.zoomLink" target="_blank">Zoom Link</a>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 Freedom Recovery</p>
-    </footer>
-  </div>
+  <MainLayout>
+    <section id="home">
+      <h2>Welcome to Freedom Recovery</h2>
+      <h3>Our only rule is to be kind and be clothed 😊</h3>
+      <p>Our program helps individuals recover from addiction through support and community using a modern and no pressure approach.</p>
+      <button @click="findMeeting">Find a Meeting</button>
+    </section>
+    <section id="meetings" v-if="showMeetings">
+      <h2>Find a Meeting</h2>
+      <div class="search-bar">
+        <input type="text" v-model="location" placeholder="Enter your location">
+        <button @click="searchMeetings">Search</button>
+      </div>
+      <ul>
+        <li v-for="meeting in meetings" :key="meeting.id">
+          <strong>{{ meeting.title }}</strong> - {{ meeting.time }}
+          <a :href="meeting.zoomLink" target="_blank">Zoom Link</a>
+        </li>
+      </ul>
+    </section>
+  </MainLayout>
 </template>
 
 <script>
 import axios from 'axios'
+import MainLayout from './MainLayout.vue'
 
 export default {
+  components: {
+    MainLayout
+  },
   data () {
     return {
       showMeetings: false,
